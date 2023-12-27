@@ -79,7 +79,13 @@ public class DriveSubsystem extends SubsystemBase {
             m_rearRight.getPosition()
         });
   }
-
+  public void driveRobotRelative(ChassisSpeeds speeds){
+    this.drive(speeds.vxMetersPerSecond,speeds.vyMetersPerSecond,speeds.omegaRadiansPerSecond,false,false);
+  }
+  
+  public ChassisSpeeds getRobotRelativeSpeeds(){
+    return DriveConstants.kDriveKinematics.toChassisSpeeds(m_frontLeft.getState(), m_frontRight.getState(), m_rearLeft.getState(),m_rearRight.getState());
+  }
   /**
    * Returns the currently-estimated pose of the robot.
    *
