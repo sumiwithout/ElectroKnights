@@ -16,9 +16,10 @@ import com.revrobotics.AbsoluteEncoder;
 import com.revrobotics.RelativeEncoder;
 
 import frc.robot.Constants.ModuleConstants;
+import monologue.Logged;
 import monologue.Monologue.LogBoth;
 
-public class MAXSwerveModule {
+public class MAXSwerveModule implements Logged {
   private final CANSparkMax m_drivingSparkMax;
   private final CANSparkMax m_turningSparkMax;
 
@@ -159,4 +160,9 @@ public class MAXSwerveModule {
   public void resetEncoders() {
     m_drivingEncoder.setPosition(0);
   }
+  @LogBoth
+public double getSteerTemperature() { return m_turningSparkMax.getMotorTemperature(); }
+
+@LogBoth
+public double getDriveTemperature() { return m_drivingSparkMax.getMotorTemperature(); }
 }
