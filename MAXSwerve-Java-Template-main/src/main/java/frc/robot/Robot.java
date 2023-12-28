@@ -33,6 +33,7 @@ public class Robot extends TimedRobot implements Logged {
     // autonomous chooser on the dashboard.
     m_robotContainer = new RobotContainer();
     CameraServer.startAutomaticCapture().setVideoMode(PixelFormat.kYUYV, 320, 180, 30);
+   // Monologue is what we will use to have accurate telementary in our robot
     Monologue.setupLogging(this, "/Robot");
   }
 

@@ -20,6 +20,7 @@ import frc.robot.Constants.DriveConstants;
 
 import frc.utils.SwerveUtils;
 import monologue.Logged;
+import monologue.Monologue.LogBoth;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 
 public class DriveSubsystem extends SubsystemBase implements Logged{
@@ -212,6 +213,7 @@ public class DriveSubsystem extends SubsystemBase implements Logged{
    *
    * @param desiredStates The desired SwerveModule states.
    */
+  @LogBoth
   public void setModuleStates(SwerveModuleState[] desiredStates) {
     SwerveDriveKinematics.desaturateWheelSpeeds(
         desiredStates, DriveConstants.kMaxSpeedMetersPerSecond);
@@ -239,6 +241,7 @@ public class DriveSubsystem extends SubsystemBase implements Logged{
    *
    * @return the robot's heading in degrees, from -180 to 180
    */
+  @LogBoth
   public double getHeading() {
     return Rotation2d.fromDegrees(m_gyro.getAngle()).getDegrees();
   }
@@ -248,6 +251,7 @@ public class DriveSubsystem extends SubsystemBase implements Logged{
    *
    * @return The turn rate of the robot, in degrees per second
    */
+  @LogBoth
   public double getTurnRate() {
     return m_gyro.getRate() * (DriveConstants.kGyroReversed ? -1.0 : 1.0);
   }
