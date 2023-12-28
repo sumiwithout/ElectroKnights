@@ -164,5 +164,13 @@ public class MAXSwerveModule implements Logged {
 public double getSteerTemperature() { return m_turningSparkMax.getMotorTemperature(); }
 
 @LogBoth
+public double getSteerOutputCurrent(){
+  return m_turningSparkMax.getOutputCurrent();
+}
+@LogBoth
+public double getDriveOutputCurrent(){
+  return m_drivingSparkMax.getOutputCurrent();
+}
+@LogBoth
 public double getDriveTemperature() { return m_drivingSparkMax.getMotorTemperature(); }
 }
