@@ -88,7 +88,7 @@ public class DriveSubsystem extends SubsystemBase implements Logged{
   public void driveRobotRelative(ChassisSpeeds speeds){
     this.drive(speeds.vxMetersPerSecond,speeds.vyMetersPerSecond,speeds.omegaRadiansPerSecond,false,false);
   }
-  
+  @LogBoth
   public ChassisSpeeds getRobotRelativeSpeeds(){
     return DriveConstants.kDriveKinematics.toChassisSpeeds(m_frontLeft.getState(), m_frontRight.getState(), m_rearLeft.getState(),m_rearRight.getState());
   }
@@ -97,6 +97,7 @@ public class DriveSubsystem extends SubsystemBase implements Logged{
    *
    * @return The pose.
    */
+  @LogBoth
   public Pose2d getPose() {
     return m_odometry.getPoseMeters();
   }
@@ -213,7 +214,7 @@ public class DriveSubsystem extends SubsystemBase implements Logged{
    *
    * @param desiredStates The desired SwerveModule states.
    */
-  @LogBoth
+
   public void setModuleStates(SwerveModuleState[] desiredStates) {
     SwerveDriveKinematics.desaturateWheelSpeeds(
         desiredStates, DriveConstants.kMaxSpeedMetersPerSecond);

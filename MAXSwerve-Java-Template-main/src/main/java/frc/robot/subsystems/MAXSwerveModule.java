@@ -16,6 +16,7 @@ import com.revrobotics.AbsoluteEncoder;
 import com.revrobotics.RelativeEncoder;
 
 import frc.robot.Constants.ModuleConstants;
+import monologue.Monologue.LogBoth;
 
 public class MAXSwerveModule {
   private final CANSparkMax m_drivingSparkMax;
@@ -110,11 +111,7 @@ public class MAXSwerveModule {
     m_drivingEncoder.setPosition(0);
   }
 
-  /**
-   * Returns the current state of the module.
-   *
-   * @return The current state of the module.
-   */
+ 
   public SwerveModuleState getState() {
     // Apply chassis angular offset to the encoder position to get the position
     // relative to the chassis.
@@ -127,6 +124,7 @@ public class MAXSwerveModule {
    *
    * @return The current position of the module.
    */
+  @LogBoth
   public SwerveModulePosition getPosition() {
     // Apply chassis angular offset to the encoder position to get the position
     // relative to the chassis.
