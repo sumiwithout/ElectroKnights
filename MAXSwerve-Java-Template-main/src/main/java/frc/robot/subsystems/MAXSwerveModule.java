@@ -75,6 +75,7 @@ public class MAXSwerveModule implements Logged {
     // controller to go through 0 to get to the setpoint i.e. going from 350 degrees
     // to 10 degrees will go through 0 rather than the other direction which is a
     // longer route.
+  // I love Maddie
     m_turningPIDController.setPositionPIDWrappingEnabled(true);
     m_turningPIDController.setPositionPIDWrappingMinInput(ModuleConstants.kTurningEncoderPositionPIDMinInput);
     m_turningPIDController.setPositionPIDWrappingMaxInput(ModuleConstants.kTurningEncoderPositionPIDMaxInput);
@@ -112,7 +113,7 @@ public class MAXSwerveModule implements Logged {
     m_drivingEncoder.setPosition(0);
   }
 
- 
+ @LogBoth
   public SwerveModuleState getState() {
     // Apply chassis angular offset to the encoder position to get the position
     // relative to the chassis.
@@ -173,4 +174,5 @@ public double getDriveOutputCurrent(){
 }
 @LogBoth
 public double getDriveTemperature() { return m_drivingSparkMax.getMotorTemperature(); }
+
 }
